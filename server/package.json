@@ -1,0 +1,23 @@
+{
+  "name": "hiretrack-server",
+  "version": "1.0.0",
+  "description": "Backend API for HireTrack Job Application Tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test-db": "node config/test-db.js",
+    "init-db": "node config/init-db.js"
+  },
+  "keywords": ["job-tracker", "express", "mysql", "interview-prep"],
+  "author": "HireTrack",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.12.0"
+  }
+}

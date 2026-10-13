@@ -1,0 +1,23 @@
+{
+  "name": "hiretrack-portfolio",
+  "version": "1.0.0",
+  "description": "HireTrack — Job Application Tracker Full-Stack Application for Placement Portfolio",
+  "scripts": {
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "start-server": "npm --prefix server start",
+    "init-db": "npm --prefix server run init-db",
+    "test-db": "npm --prefix server run test-db",
+    "build-client": "npm --prefix client run build"
+  },
+  "keywords": [
+    "job-application-tracker",
+    "react",
+    "express",
+    "nodejs",
+    "mysql",
+    "placement-portfolio"
+  ],
+  "author": "HireTrack",
+  "license": "ISC"
+}
