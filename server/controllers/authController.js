@@ -95,6 +95,28 @@ async function register(req, res) {
     });
   } catch (error) {
     console.error('Register error:', error);
+
+    if (error.code === 'ER_ACCESS_DENIED_ERROR') {
+      return res.status(500).json({
+        success: false,
+        message: 'MySQL Access Denied. Please configure your MySQL root password in server/.env and run "npm run init-db".'
+      });
+    }
+
+    if (error.code === 'ER_BAD_DB_ERROR') {
+      return res.status(500).json({
+        success: false,
+        message: 'Database "hiretrack" does not exist yet. Please run "npm run init-db" in terminal to set it up.'
+      });
+    }
+
+    if (error.code === 'ECONNREFUSED') {
+      return res.status(500).json({
+        success: false,
+        message: 'Cannot connect to MySQL server. Please ensure the MySQL service is running.'
+      });
+    }
+
     return res.status(500).json({
       success: false,
       message: 'Internal server error while registering user.',
@@ -160,6 +182,28 @@ async function login(req, res) {
     });
   } catch (error) {
     console.error('Login error:', error);
+
+    if (error.code === 'ER_ACCESS_DENIED_ERROR') {
+      return res.status(500).json({
+        success: false,
+        message: 'MySQL Access Denied. Please configure your MySQL root password in server/.env and run "npm run init-db".'
+      });
+    }
+
+    if (error.code === 'ER_BAD_DB_ERROR') {
+      return res.status(500).json({
+        success: false,
+        message: 'Database "hiretrack" does not exist yet. Please run "npm run init-db" in terminal to set it up.'
+      });
+    }
+
+    if (error.code === 'ECONNREFUSED') {
+      return res.status(500).json({
+        success: false,
+        message: 'Cannot connect to MySQL server. Please ensure the MySQL service is running.'
+      });
+    }
+
     return res.status(500).json({
       success: false,
       message: 'Internal server error while logging in.',
